@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Estado de la obra: todos leen; SOLO el operador autenticado escribe.
+    match /show/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Votos: todos leen. El público solo puede SUMAR de a 1 en a/b.
+    // El operador autenticado puede resetear.
+    match /polls/{poll} {
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow create: if request.resource.data.keys().hasOnly(['a','b']);
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['a','b'])
+        && ( (request.resource.data.get('a',0) == resource.data.get('a',0) + 1 && request.resource.data.get('b',0) == resource.data.get('b',0))
+          || (request.resource.data.get('b',0) == resource.data.get('b',0) + 1 && request.resource.data.get('a',0) == resource.data.get('a',0)) );
+    }
+
+    // Preguntas: cualquiera crea (texto acotado); solo el operador lee/borra.
+    match /questions/{q} {
+      allow read: if request.auth != null;
+      allow create: if request.resource.data.text is string && request.resource.data.text.size() <= 200;
+      allow update, delete: if request.auth != null;
+    }
+    // Utilería de Industria S.A. (lista de escenografía, props y vestuario).
+    // Cualquiera con el link lee y marca; solo se aceptan los campos de la lista.
+    match /utileria/{item} {
+      allow read: if true;
+      allow create, update: if request.resource.data.keys().hasOnly(['nombre','tipo','detalle','alerta','momentos','personajes','origen','estado','nota','orden','actualizado_por','actualizado'])
+        && request.resource.data.nombre is string && request.resource.data.nombre.size() > 0 && request.resource.data.nombre.size() <= 120
+        && request.resource.data.tipo in ['escenografia','prop','vestuario']
+        && request.resource.data.estado in ['falta','curso','listo']
+        && request.resource.data.get('nota', '').size() <= 1000
+        && request.resource.data.get('actualizado_por', '').size() <= 40;
+      allow delete: if true;
+    }
+
+  }
+}

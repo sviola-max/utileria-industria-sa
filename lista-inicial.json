@@ -1,0 +1,1203 @@
+{
+ "agua": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Vaso o botella de agua",
+  "nota": "",
+  "orden": 25,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "almanaque": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Almanaque de pared sin año legible",
+  "nota": "",
+  "orden": 12,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "bebidas": {
+  "detalle": "Catering.",
+  "estado": "falta",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Bebidas y servicio",
+  "nota": "",
+  "orden": 29,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "boleta-vereda": {
+  "actualizado": "2026-10-13T17:39:12.369Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Boleta de la tasa por ocupación potencial de vereda industrial",
+  "nota": "",
+  "orden": 41,
+  "origen": "I",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "boletas-tasa-mesa": {
+  "actualizado": "2026-10-13T17:39:53.676Z",
+  "actualizado_por": "Santi",
+  "detalle": "El Político deja una en dos o tres mesas del público.",
+  "estado": "curso",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Boletas de la tasa por ocupación potencial de mesa redonda",
+  "nota": "",
+  "orden": 72,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "prop"
+ },
+ "caja-t0": {
+  "detalle": "Vuelta del Norte a la tarima central: la esquiva sin pensarlo.",
+  "estado": "falta",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "1 caja en el camino del Industrial",
+  "nota": "",
+  "orden": 30,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "cajas-3": {
+  "detalle": "Vuelta del Sur a la tarima central: las corre una por una sin dejar de caminar.",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "3 cajas en el camino del Industrial",
+  "nota": "",
+  "orden": 69,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "cajas-4": {
+  "detalle": "Vuelta del Oeste a la tarima central: el Industrial y la Hija las acomodan entre los dos.",
+  "estado": "falta",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "4 cajas en el camino del Industrial",
+  "nota": "",
+  "orden": 70,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "cajas-5": {
+  "detalle": "Transición V → Finale, junto a una mesa encintada: el Industrial no puede correrlas y la mesa lo ayuda pasándolas de mano en mano. Tienen que ser livianas y fáciles de pasar.",
+  "estado": "falta",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "5 cajas apiladas en el camino del Industrial",
+  "nota": "",
+  "orden": 71,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "cajas-t1": {
+  "detalle": "Vuelta del Este a la tarima central: las agarra y las acomoda a un costado.",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "2 cajas en el camino del Industrial",
+  "nota": "",
+  "orden": 39,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "calculo-iibb": {
+  "actualizado": "2026-10-13T17:40:21.373Z",
+  "actualizado_por": "Santi",
+  "detalle": "Se lo desliza al Industrial.",
+  "estado": "curso",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Cálculo de Ingresos Brutos de toda la cadena",
+  "nota": "",
+  "orden": 53,
+  "origen": "L",
+  "personajes": [
+   "HIJA"
+  ],
+  "tipo": "prop"
+ },
+ "camisa-politico": {
+  "detalle": "Para el que \"no es la misma persona que antes\".",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Segunda camisa del Político",
+  "nota": "",
+  "orden": 63,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "vestuario"
+ },
+ "canasto-papeles": {
+  "detalle": "Al cierre del Momento V, el Político se lo vacía en la cabeza al Industrial y a la Hija. Los asistentes lo llenan y lo dejan a mano; reponer papeles para cada función.",
+  "estado": "falta",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Canasto gigante lleno de papeles",
+  "nota": "",
+  "orden": 74,
+  "origen": "L",
+  "personajes": [
+   "POLITICO",
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "carpeta-3d": {
+  "actualizado": "2026-10-13T17:38:44.384Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Segunda carpeta del Político (formulario 3-D)",
+  "nota": "",
+  "orden": 37,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "prop"
+ },
+ "carpeta-habilitacion": {
+  "actualizado": "2026-10-13T17:38:31.259Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Carpeta de habilitación industrial",
+  "nota": "",
+  "orden": 32,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "prop"
+ },
+ "carteles": {
+  "actualizado": "2026-10-13T13:06:57.231Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "listo",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Carteles SOMOS INDUSTRIA",
+  "nota": "",
+  "orden": 3,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "celular-industrial": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Celular del Industrial",
+  "nota": "",
+  "orden": 46,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "chaqueta": {
+  "detalle": "En el respaldo de la silla; se la pone botón por botón. Base del vestuario.",
+  "estado": "falta",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Chaqueta del Industrial",
+  "nota": "",
+  "orden": 60,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "vestuario"
+ },
+ "cinta-peligro": {
+  "alerta": "Falta medir el largo para todo el salón y ver si el Político llega solo.",
+  "detalle": "En la vorágine del Momento V el Político encierra con ella a todas las mesas del público. Queda puesta en el Finale.",
+  "estado": "falta",
+  "momentos": [
+   "M5",
+   "M6"
+  ],
+  "nombre": "Rollo de cinta de peligro",
+  "nota": "",
+  "orden": 73,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "prop"
+ },
+ "copias-mesas-m5": {
+  "actualizado": "2026-10-13T17:40:25.775Z",
+  "actualizado_por": "Santi",
+  "detalle": "El Industrial toma una de la mesa de un espectador.",
+  "estado": "curso",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Copias de los papeles del Momento V para las mesas del público",
+  "nota": "",
+  "orden": 57,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "cotizacion-1": {
+  "actualizado": "2026-10-13T17:38:40.686Z",
+  "actualizado_por": "Santi",
+  "detalle": "Aparece entre los formularios.",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Cotización de CLIENTE SA (la primera)",
+  "nota": "",
+  "orden": 35,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "cotizacion-3": {
+  "actualizado": "2026-10-13T17:39:33.061Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Cotización de CLIENTE SA (\"la tercera del mes\")",
+  "nota": "",
+  "orden": 44,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "enrejado": {
+  "detalle": "En el Finale el Oficial lleva al Periodista tras las rejas.",
+  "estado": "falta",
+  "momentos": [
+   "M0",
+   "M6"
+  ],
+  "nombre": "Enrejado frente al sector de periodistas",
+  "nota": "",
+  "orden": 8,
+  "origen": "L",
+  "personajes": [
+   "OFICIAL"
+  ],
+  "tipo": "escenografia"
+ },
+ "escritorio-este": {
+  "detalle": "Oficina del Industrial, en la misma tarima que el despacho.",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Escritorio moderno años 2000 + silla",
+  "nota": "",
+  "orden": 16,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "escritorio-norte": {
+  "detalle": "Momento I. Se puede reusar despojado en el Momento V.",
+  "estado": "falta",
+  "momentos": [
+   "M1",
+   "M5"
+  ],
+  "nombre": "Escritorio de madera gastada",
+  "nota": "",
+  "orden": 9,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "escritorio-politico": {
+  "detalle": "En penumbra al principio.",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Escritorio del despacho del Político",
+  "nota": "",
+  "orden": 14,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "escenografia"
+ },
+ "escritorio-sur": {
+  "alerta": "El libreto no tiene \"Espacio y atmósfera\" para el Momento III.",
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Escritorio y silla de la oficina del Sur",
+  "nota": "",
+  "orden": 18,
+  "origen": "I",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "folletos": {
+  "actualizado": "2026-10-13T17:38:29.610Z",
+  "actualizado_por": "Santi",
+  "detalle": "Se reparten en la transición; los formularios del Momento I van mezclados entre ellos.",
+  "estado": "curso",
+  "momentos": [
+   "T0",
+   "M1"
+  ],
+  "nombre": "Folletos de INDUSTRIA SA",
+  "nota": "",
+  "orden": 31,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "tipo": "prop"
+ },
+ "formularios": {
+  "actualizado": "2026-10-13T17:38:32.256Z",
+  "actualizado_por": "Santi",
+  "detalle": "Mezclados entre los folletos de las mesas; el público se los alcanza.",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Formularios 3-A y 3-B + certificados (uso de suelo, bomberos, AFIP, ARBA)",
+  "nota": "",
+  "orden": 33,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES",
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "grabador": {
+  "actualizado": "2026-10-13T13:07:03.721Z",
+  "actualizado_por": "Santi",
+  "detalle": "Toda la obra.",
+  "estado": "curso",
+  "momentos": [
+   "PRE",
+   "M0",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Grabador / grabadora",
+  "nota": "",
+  "orden": 23,
+  "origen": "L",
+  "personajes": [
+   "PERIODISTA"
+  ],
+  "tipo": "prop"
+ },
+ "hoja-china": {
+  "actualizado": "2026-10-13T17:40:22.047Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Hoja con el precio más bajo de lo importado de China",
+  "nota": "",
+  "orden": 54,
+  "origen": "L",
+  "personajes": [
+   "LIBERTARIO"
+  ],
+  "tipo": "prop"
+ },
+ "kit-mesas": {
+  "actualizado": "2026-10-13T17:39:50.762Z",
+  "actualizado_por": "Santi",
+  "detalle": "Se dejan y retiran en el III (\"ninguna mesa queda igual\"); la Hija los junta en el IV.",
+  "estado": "curso",
+  "momentos": [
+   "M3",
+   "M4"
+  ],
+  "nombre": "Kit de papeles y objetos para las mesas del público",
+  "nota": "",
+  "orden": 48,
+  "origen": "L",
+  "personajes": [
+   "ASISTENTES",
+   "HIJA"
+  ],
+  "tipo": "prop"
+ },
+ "lapicera": {
+  "actualizado": "2026-10-13T17:40:06.603Z",
+  "actualizado_por": "Santi",
+  "detalle": "Para firmar las vacaciones.",
+  "estado": "curso",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Lapicera",
+  "nota": "",
+  "orden": 52,
+  "origen": "I",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "libreta-libertario": {
+  "detalle": "Cálculos histriónicos.",
+  "estado": "falta",
+  "momentos": [
+   "M6"
+  ],
+  "nombre": "Libreta del Libertario",
+  "nota": "",
+  "orden": 58,
+  "origen": "L",
+  "personajes": [
+   "LIBERTARIO"
+  ],
+  "tipo": "prop"
+ },
+ "libreta-periodista": {
+  "actualizado": "2026-10-13T13:07:06.334Z",
+  "actualizado_por": "Santi",
+  "detalle": "Anota en el Preludio.",
+  "estado": "listo",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Libreta del Periodista",
+  "nota": "",
+  "orden": 24,
+  "origen": "L",
+  "personajes": [
+   "PERIODISTA"
+  ],
+  "tipo": "prop"
+ },
+ "libreta-politico": {
+  "detalle": "La revisa antes de decir \"seis veces más\".",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Libreta del Político",
+  "nota": "",
+  "orden": 45,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "prop"
+ },
+ "luz-sur": {
+  "detalle": "Práctica o cue de luz.",
+  "estado": "falta",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Lámpara o luz que el Industrial apaga al irse",
+  "nota": "",
+  "orden": 19,
+  "origen": "I",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "escenografia"
+ },
+ "maquina-escribir": {
+  "actualizado": "2026-10-13T17:38:20.510Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "listo",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Máquina de escribir",
+  "nota": "",
+  "orden": 11,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "mesa-industrial": {
+  "actualizado": "2026-10-13T13:07:02.296Z",
+  "actualizado_por": "Santi",
+  "detalle": "Donde lo arrestan.",
+  "estado": "listo",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Mesa del Industrial cerca del escenario principal",
+  "nota": "",
+  "orden": 4,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "escenografia"
+ },
+ "mesa-oeste": {
+  "detalle": "Oficina actual, luz LED.",
+  "estado": "falta",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Mesa con dos sillas enfrentadas",
+  "nota": "",
+  "orden": 20,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL",
+   "HIJA"
+  ],
+  "tipo": "escenografia"
+ },
+ "mesas-publico": {
+  "actualizado": "2026-10-13T13:06:49.505Z",
+  "actualizado_por": "Santi",
+  "detalle": "Las aporta el salón. Son escenario de toda la obra: ahí se reparten y levantan papeles.",
+  "estado": "listo",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Mesas redondas con sillas para el público",
+  "nota": "",
+  "orden": 1,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "microfono-entrevista": {
+  "actualizado": "2026-10-13T17:37:49.893Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M0",
+   "M6"
+  ],
+  "nombre": "Micrófono en el medio de la entrevista",
+  "nota": "",
+  "orden": 7,
+  "origen": "L",
+  "personajes": [
+   "PERIODISTA"
+  ],
+  "tipo": "escenografia"
+ },
+ "microfono-presidente": {
+  "actualizado": "2026-10-13T13:07:15.238Z",
+  "actualizado_por": "Santi",
+  "detalle": "Apertura y reflexión final.",
+  "estado": "listo",
+  "momentos": [
+   "PRE",
+   "M6"
+  ],
+  "nombre": "Micrófono del Presidente",
+  "nota": "",
+  "orden": 28,
+  "origen": "I",
+  "personajes": [
+   "PRESIDENTE"
+  ],
+  "tipo": "prop"
+ },
+ "movicom": {
+  "detalle": "Suena.",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Movicom",
+  "nota": "",
+  "orden": 42,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "nota-puno-letra": {
+  "actualizado": "2026-10-13T17:38:33.893Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Nota de puño y letra",
+  "nota": "",
+  "orden": 34,
+  "origen": "I",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "notebooks": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M6"
+  ],
+  "nombre": "Dos notebooks",
+  "nota": "",
+  "orden": 59,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL",
+   "HIJA"
+  ],
+  "tipo": "prop"
+ },
+ "objetos-norte": {
+  "detalle": "Luz sepia.",
+  "estado": "falta",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Objetos de época 70/80, deliberadamente imprecisos",
+  "nota": "",
+  "orden": 13,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "pantalla-apagada": {
+  "detalle": "Utilería: no tiene que funcionar.",
+  "estado": "falta",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Pantalla apagada",
+  "nota": "",
+  "orden": 21,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "pantallas": {
+  "actualizado": "2026-10-13T13:06:53.531Z",
+  "actualizado_por": "Santi",
+  "detalle": "Logo del evento en el Preludio. Las proyecciones se eliminaron de la obra.",
+  "estado": "listo",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Pantallas laterales",
+  "nota": "",
+  "orden": 2,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "papel-arresto": {
+  "detalle": "El Oficial lo trae, el Industrial lo lee y dobla, la Hija lo recoge. Nadie del público lo ve.",
+  "estado": "falta",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Papel del arresto",
+  "nota": "",
+  "orden": 27,
+  "origen": "L",
+  "personajes": [
+   "OFICIAL",
+   "INDUSTRIAL",
+   "HIJA"
+  ],
+  "tipo": "prop"
+ },
+ "papel-cuentas": {
+  "actualizado": "2026-10-13T17:40:02.660Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Papel del Libertario para hacer cuentas en el reverso",
+  "nota": "",
+  "orden": 50,
+  "origen": "L",
+  "personajes": [
+   "LIBERTARIO"
+  ],
+  "tipo": "prop"
+ },
+ "papeles-extra-m5": {
+  "actualizado": "2026-10-13T17:40:25.137Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Papeles extra del Libertario y el Estadista para llenar la mesa",
+  "nota": "",
+  "orden": 56,
+  "origen": "L",
+  "personajes": [
+   "LIBERTARIO",
+   "ESTADISTA"
+  ],
+  "tipo": "prop"
+ },
+ "papeles-m1": {
+  "actualizado": "2026-10-13T17:38:42.371Z",
+  "actualizado_por": "Santi",
+  "detalle": "Los revisa, los deja, los vuelve a revisar.",
+  "estado": "curso",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Papeles sobre el escritorio del Norte",
+  "nota": "",
+  "orden": 36,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "papeles-m3": {
+  "actualizado": "2026-10-13T17:39:47.105Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M3"
+  ],
+  "nombre": "Papeles para ordenar en la oficina del Sur",
+  "nota": "",
+  "orden": 47,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "papeles-m4": {
+  "actualizado": "2026-10-13T17:40:01.571Z",
+  "actualizado_por": "Santi",
+  "detalle": "",
+  "estado": "curso",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Papeles que revisa el Industrial en el Oeste",
+  "nota": "",
+  "orden": 49,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "papeles-rechazados": {
+  "actualizado": "2026-10-13T17:39:09.160Z",
+  "actualizado_por": "Santi",
+  "detalle": "Los levanta y los deja caer.",
+  "estado": "curso",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Papeles rechazados",
+  "nota": "",
+  "orden": 40,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "pc": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "PC de escritorio que no enciende",
+  "nota": "",
+  "orden": 17,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "escenografia"
+ },
+ "radio": {
+  "detalle": "La voz en off es cue de sonido.",
+  "estado": "falta",
+  "momentos": [
+   "M2"
+  ],
+  "nombre": "Radio a batería",
+  "nota": "",
+  "orden": 43,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "silla-vieja": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M1"
+  ],
+  "nombre": "Silla de oficina vieja",
+  "nota": "",
+  "orden": 10,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "sillas-entrevista": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M0",
+   "M6"
+  ],
+  "nombre": "Dos sillas enfrentadas para la entrevista",
+  "nota": "",
+  "orden": 6,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL",
+   "PERIODISTA"
+  ],
+  "tipo": "escenografia"
+ },
+ "sillas-norte-v": {
+  "alerta": "El libreto dice \"una silla\" pero están sentados frente a frente.",
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Dos sillas para el escritorio del Norte",
+  "nota": "",
+  "orden": 22,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL",
+   "HIJA"
+  ],
+  "tipo": "escenografia"
+ },
+ "tarima-central": {
+  "actualizado": "2026-10-13T17:37:45.373Z",
+  "actualizado_por": "Santi",
+  "detalle": "Base de la entrevista; se vuelve acá entre momentos.",
+  "estado": "curso",
+  "momentos": [
+   "M0",
+   "M6"
+  ],
+  "nombre": "Tarima circular central",
+  "nota": "",
+  "orden": 5,
+  "origen": "L",
+  "personajes": [],
+  "tipo": "escenografia"
+ },
+ "tasas-municipales": {
+  "actualizado": "2026-10-13T17:40:22.957Z",
+  "actualizado_por": "Santi",
+  "detalle": "Una es \"por fiscalización preventiva de cartelería interna\".",
+  "estado": "curso",
+  "momentos": [
+   "M5"
+  ],
+  "nombre": "Papel de las tres tasas municipales nuevas",
+  "nota": "",
+  "orden": 55,
+  "origen": "L",
+  "personajes": [
+   "ESTADISTA"
+  ],
+  "tipo": "prop"
+ },
+ "telefono-fijo": {
+  "detalle": "Suena en el I; en el III no suena.",
+  "estado": "falta",
+  "momentos": [
+   "M1",
+   "M3"
+  ],
+  "nombre": "Teléfono fijo de escritorio",
+  "nota": "",
+  "orden": 38,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "telefono-hija": {
+  "detalle": "",
+  "estado": "falta",
+  "momentos": [
+   "PRE"
+  ],
+  "nombre": "Teléfono de la Hija",
+  "nota": "",
+  "orden": 26,
+  "origen": "L",
+  "personajes": [
+   "HIJA"
+  ],
+  "tipo": "prop"
+ },
+ "uniformes": {
+  "detalle": "Uno es el del Oficial, que vuelve en el 0 y en el Finale.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M0",
+   "M6"
+  ],
+  "nombre": "Cuatro uniformes de policía",
+  "nota": "",
+  "orden": 64,
+  "origen": "L",
+  "personajes": [
+   "OFICIAL"
+  ],
+  "tipo": "vestuario"
+ },
+ "vacaciones-martin": {
+  "actualizado": "2026-10-13T17:40:05.440Z",
+  "actualizado_por": "Santi",
+  "detalle": "Para firmar.",
+  "estado": "curso",
+  "momentos": [
+   "M4"
+  ],
+  "nombre": "Documento de vacaciones de Martín Acuña",
+  "nota": "",
+  "orden": 51,
+  "origen": "L",
+  "personajes": [
+   "HIJA",
+   "INDUSTRIAL"
+  ],
+  "tipo": "prop"
+ },
+ "vestuario-estadista": {
+  "detalle": "El libreto no lo describe.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M0",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Vestuario del Estadista",
+  "nota": "",
+  "orden": 68,
+  "origen": "I",
+  "personajes": [
+   "ESTADISTA"
+  ],
+  "tipo": "vestuario"
+ },
+ "vestuario-hija": {
+  "detalle": "El libreto no lo describe.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Vestuario de la Hija",
+  "nota": "",
+  "orden": 65,
+  "origen": "I",
+  "personajes": [
+   "HIJA"
+  ],
+  "tipo": "vestuario"
+ },
+ "vestuario-industrial": {
+  "detalle": "Joven (I), mediana edad (II–III), actual. Cambios sutiles, mismo actor.",
+  "estado": "falta",
+  "momentos": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Vestuario del Industrial en tres edades",
+  "nota": "",
+  "orden": 61,
+  "origen": "L",
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "tipo": "vestuario"
+ },
+ "vestuario-libertario": {
+  "detalle": "El libreto no lo describe.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M0",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Vestuario del Libertario",
+  "nota": "",
+  "orden": 67,
+  "origen": "I",
+  "personajes": [
+   "LIBERTARIO"
+  ],
+  "tipo": "vestuario"
+ },
+ "vestuario-periodista": {
+  "detalle": "El libreto no lo describe.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M0",
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6"
+  ],
+  "nombre": "Vestuario del Periodista",
+  "nota": "",
+  "orden": 66,
+  "origen": "I",
+  "personajes": [
+   "PERIODISTA"
+  ],
+  "tipo": "vestuario"
+ },
+ "vestuario-politico": {
+  "detalle": "Funcionario de ventanilla, político del despacho, político de época expansiva.",
+  "estado": "falta",
+  "momentos": [
+   "PRE",
+   "M1",
+   "M2",
+   "M3",
+   "M5"
+  ],
+  "nombre": "Vestuario del Político por época",
+  "nota": "",
+  "orden": 62,
+  "origen": "L",
+  "personajes": [
+   "POLITICO"
+  ],
+  "tipo": "vestuario"
+ }
+}

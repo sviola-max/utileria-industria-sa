@@ -1,0 +1,456 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Utilería de Industria S.A.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: hoja de utilería de regidor — columna única, grupos por momento o personaje, rótulos como cinta de marcar sobre el piso */
+:root {
+  --bg: #eef0f2;
+  --paper: #fbfbfa;
+  --ink: #1d2430;
+  --muted: #5d6676;
+  --line: #d5d9df;
+  --accent: #2d4fa3;
+  --accent-soft: #dfe6f6;
+  --tape: #f2c14a;
+  --tape-ink: #3a2c05;
+  --falta: #b8443a;
+  --falta-soft: #f6e1de;
+  --curso: #b07a10;
+  --curso-soft: #f8ecd0;
+  --listo: #2f7a4f;
+  --listo-soft: #dcefe3;
+  --f-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171c; --paper: #1c2027; --ink: #e6e8ec; --muted: #9aa3b2; --line: #313844;
+    --accent: #8ea8ec; --accent-soft: #263150; --tape: #d9a933; --tape-ink: #241a02;
+    --falta: #ec8a7f; --falta-soft: #3d2422; --curso: #e3b450; --curso-soft: #3a2f17;
+    --listo: #79c897; --listo-soft: #1d3527; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171c; --paper: #1c2027; --ink: #e6e8ec; --muted: #9aa3b2; --line: #313844;
+  --accent: #8ea8ec; --accent-soft: #263150; --tape: #d9a933; --tape-ink: #241a02;
+  --falta: #ec8a7f; --falta-soft: #3d2422; --curso: #e3b450; --curso-soft: #3a2f17;
+  --listo: #79c897; --listo-soft: #1d3527; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; }
+h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: .01em; line-height: 1.05; }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lede { color: var(--muted); max-width: 62ch; margin: 6px 0 0; }
+
+.summary { display: grid; gap: 10px; }
+.bar { display: flex; height: 12px; border-radius: 3px; overflow: hidden; background: var(--falta-soft); }
+.bar span { display: block; height: 100%; transition: width .3s; }
+.bar .b-listo { background: var(--listo); }
+.bar .b-curso { background: var(--curso); }
+.counts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-variant-numeric: tabular-nums; }
+.counts b { font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; margin-right: 4px; }
+.c-listo b { color: var(--listo); } .c-curso b { color: var(--curso); } .c-falta b { color: var(--falta); }
+.bytipo { font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.controls { display: grid; gap: 10px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; border-bottom: 1px solid var(--line); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); }
+.seg button { border: 0; background: none; color: var(--ink); font: 600 .95rem var(--f-display); letter-spacing: .03em; padding: 7px 14px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--paper); }
+.chip { border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 4px 11px; font: 500 .85rem var(--f-body); cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+input[type="search"], input[type="text"], textarea, select {
+  font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px;
+}
+input[type="search"] { flex: 1 1 200px; min-width: 0; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.groups { display: grid; gap: 26px; }
+.group { display: grid; gap: 8px; }
+.ghead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.tape { display: inline-block; background: var(--tape); color: var(--tape-ink); font: 700 1.05rem var(--f-display); letter-spacing: .05em; text-transform: uppercase; padding: 2px 10px; transform: rotate(-.6deg); box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+.gsub { color: var(--muted); font-size: .88rem; }
+.gcount { margin-left: auto; font-family: var(--f-mono); font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.subtipo { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+.items { list-style: none; margin: 0; padding: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
+.item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; padding: 10px 12px; border-top: 1px solid var(--line); }
+.item:first-child { border-top: 0; }
+.state { grid-row: span 2; align-self: start; min-width: 104px; border: 1px solid transparent; border-radius: 5px; padding: 5px 8px; font: 600 .82rem var(--f-display); letter-spacing: .05em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.state::before { content: ""; width: 12px; height: 12px; border-radius: 2px; border: 2px solid currentColor; flex: none; }
+.state.falta { background: var(--falta-soft); color: var(--falta); }
+.state.curso { background: var(--curso-soft); color: var(--curso); }
+.state.curso::before { background: linear-gradient(135deg, currentColor 50%, transparent 50%); }
+.state.listo { background: var(--listo-soft); color: var(--listo); }
+.state.listo::before { background: currentColor; }
+.state:disabled { cursor: default; opacity: .75; }
+.name { font-weight: 600; min-width: 0; }
+.item.is-listo .name { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; font-size: .82rem; color: var(--muted); min-width: 0; }
+.tag { font-family: var(--f-mono); font-size: .7rem; border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; color: var(--muted); }
+.tag.inf { border-style: dashed; }
+.tag.warn { border-color: var(--curso); color: var(--curso); }
+.detail { grid-column: 2; font-size: .88rem; color: var(--muted); }
+.more { grid-column: 2; }
+.more summary { cursor: pointer; font-size: .82rem; color: var(--accent); width: max-content; }
+.more .inner { display: grid; gap: 8px; padding-top: 8px; }
+.more textarea { width: 100%; min-height: 60px; resize: vertical; }
+.who { font-size: .78rem; color: var(--muted); }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--falta); font: inherit; font-size: .82rem; cursor: pointer; text-decoration: underline; width: max-content; }
+.note-shown { grid-column: 2; font-size: .85rem; border-left: 3px solid var(--tape); padding-left: 8px; }
+
+.empty { background: var(--paper); border: 1px dashed var(--line); border-radius: 8px; padding: 22px; color: var(--muted); }
+.notice { font-size: .85rem; color: var(--muted); }
+
+.add { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+.add summary { cursor: pointer; font: 600 1.05rem var(--f-display); letter-spacing: .03em; }
+.add form { display: grid; gap: 12px; padding-top: 12px; }
+.add label { display: grid; gap: 4px; font-size: .85rem; color: var(--muted); }
+.checks { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .88rem; }
+.checks label { display: inline-flex; gap: 5px; align-items: center; color: var(--ink); }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+legend { font-size: .85rem; color: var(--muted); padding: 0; }
+.primary { justify-self: start; background: var(--accent); color: var(--paper); border: 0; border-radius: 6px; padding: 8px 16px; font: 600 1rem var(--f-display); letter-spacing: .04em; cursor: pointer; }
+.yo { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: .88rem; color: var(--muted); }
+.yo input { flex: 0 1 180px; min-width: 0; padding: 4px 8px; }
+.sync { font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
+.formmsg { font-size: .85rem; color: var(--falta); min-height: 1em; }
+.legend { font-size: .82rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+@media (prefers-reduced-motion: reduce) { .bar span { transition: none; } }
+@media (max-width: 520px) {
+  h1 { font-size: 1.7rem; }
+  .item { grid-template-columns: minmax(0, 1fr); }
+  .state { grid-row: auto; justify-self: start; }
+  .detail, .more, .note-shown { grid-column: 1; }
+}
+</style>
+
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Somos Industria 2026 · Experiencia inmersiva · Libreto v3.3</div>
+    <h1>Utilería de Industria S.A.</h1>
+    <p class="lede">Escenografía, props y vestuario de la obra. Tocá el estado de cada elemento para pasarlo de <em>falta</em> a <em>en curso</em> y a <em>conseguido</em>. Lo que marques se guarda al instante y lo ve todo el equipo.</p>
+    <p class="yo"><label for="yo">Firmás como</label><input type="text" id="yo" maxlength="40" placeholder="Tu nombre"><span class="sync" id="sync">Conectando…</span></p>
+  </header>
+
+  <section class="summary" aria-label="Avance">
+    <div class="bar" aria-hidden="true"><span class="b-listo" id="bListo" style="width:0"></span><span class="b-curso" id="bCurso" style="width:0"></span></div>
+    <div class="counts" id="counts"><span class="notice">Cargando la lista…</span></div>
+    <div class="bytipo" id="bytipo"></div>
+  </section>
+
+  <section class="controls" aria-label="Filtros">
+    <div class="row">
+      <div class="seg" role="group" aria-label="Agrupar">
+        <button type="button" id="vMomento" aria-pressed="true">Por momento</button>
+        <button type="button" id="vPersonaje" aria-pressed="false">Por personaje</button>
+      </div>
+      <input type="search" id="q" placeholder="Buscar: radio, cotización, Hija…" aria-label="Buscar">
+    </div>
+    <div class="row" id="fEstado" role="group" aria-label="Estado">
+      <button type="button" class="chip" data-v="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="chip" data-v="falta" aria-pressed="false">Faltan</button>
+      <button type="button" class="chip" data-v="curso" aria-pressed="false">En curso</button>
+      <button type="button" class="chip" data-v="listo" aria-pressed="false">Conseguidos</button>
+      <span style="width:8px"></span>
+      <button type="button" class="chip" data-t="escenografia" aria-pressed="true">Escenografía</button>
+      <button type="button" class="chip" data-t="prop" aria-pressed="true">Props</button>
+      <button type="button" class="chip" data-t="vestuario" aria-pressed="true">Vestuario</button>
+    </div>
+  </section>
+
+  <div class="legend"><span class="tag">L</span> lo nombra el libreto <span class="tag inf">I</span> inferido de la acción <span class="tag warn">⚠</span> hay algo para resolver en el libreto</div>
+
+  <main class="groups" id="groups">
+    <div class="empty">Cargando la lista de utilería. Si no aparece nada, la lista todavía está vacía: podés sumar el primer elemento con el formulario de abajo.</div>
+  </main>
+
+  <details class="add" id="addBox">
+    <summary>Agregar un elemento</summary>
+    <form id="addForm" novalidate>
+      <label>Nombre<input type="text" id="aNombre" maxlength="120" required></label>
+      <label>Tipo
+        <select id="aTipo"><option value="prop">Prop</option><option value="escenografia">Escenografía</option><option value="vestuario">Vestuario</option></select>
+      </label>
+      <label>Detalle (opcional)<input type="text" id="aDetalle" maxlength="300"></label>
+      <fieldset><legend>Momentos</legend><div class="checks" id="aMomentos"></div></fieldset>
+      <fieldset><legend>Personajes</legend><div class="checks" id="aPersonajes"></div></fieldset>
+      <div class="formmsg" id="aMsg" role="status"></div>
+      <button type="submit" class="primary">Agregar a la lista</button>
+    </form>
+  </details>
+  <p class="notice" id="ro" hidden>No se pudo guardar el cambio. Revisá la conexión y probá de nuevo.</p>
+</div>
+
+<script>
+const MOMENTOS = [
+  { k: "PRE", t: "Preludio", s: "Sala general · 8 min" },
+  { k: "M0", t: "Momento 0 · La Entrevista", s: "Tarima central · 6 min" },
+  { k: "T0", t: "Transición 0 → I", s: "Hacia el Norte" },
+  { k: "M1", t: "Momento I · La Fundación", s: "Norte · 9 min" },
+  { k: "T1", t: "Transición I → II", s: "Hacia el Este" },
+  { k: "M2", t: "Momento II · Traspaso generacional", s: "Este · 9 min" },
+  { k: "M3", t: "Momento III · Crecimiento", s: "Sur · 7 min" },
+  { k: "M4", t: "Momento IV · Tercera generación", s: "Oeste · 8 min" },
+  { k: "M5", t: "Momento V · La Actualidad", s: "Norte · 8 min" },
+  { k: "M6", t: "Momento VI · Finale", s: "Tarima central · 8 min" }
+];
+const PERSONAJES = [
+  { k: "INDUSTRIAL", t: "El Industrial" }, { k: "PERIODISTA", t: "El Periodista" }, { k: "HIJA", t: "La Hija" },
+  { k: "POLITICO", t: "El Político" }, { k: "LIBERTARIO", t: "El Libertario" }, { k: "ESTADISTA", t: "El Estadista" },
+  { k: "OFICIAL", t: "El Oficial y uniformados" }, { k: "PRESIDENTE", t: "El Presidente de UIPBA" },
+  { k: "ASISTENTES", t: "Asistentes y mozos" }, { k: "ESCENA", t: "Escenario (sin personaje)" }
+];
+const MSHORT = { PRE: "Pre", M0: "0", T0: "T0→I", M1: "I", T1: "TI→II", M2: "II", M3: "III", M4: "IV", M5: "V", M6: "Fin" };
+const TIPOS = { escenografia: "Escenografía", prop: "Props", vestuario: "Vestuario" };
+const ESTADOS = { falta: "Falta", curso: "En curso", listo: "Conseguido" };
+const NEXT = { falta: "curso", curso: "listo", listo: "falta" };
+
+const ui = { view: "momento", estado: "todos", tipos: new Set(["escenografia", "prop", "vestuario"]), q: "" };
+try { const v = localStorage.getItem("utileria.view"); if (v === "momento" || v === "personaje") ui.view = v; } catch (e) {}
+
+const FIREBASE = {
+  apiKey: "AIzaSyC5DrFCMBC8qb6HlKLVJw9iDdyRBXTLC68",
+  authDomain: "somos-industria-be1c5.firebaseapp.com",
+  projectId: "somos-industria-be1c5",
+  appId: "1:789995252027:web:82a01e897f7a72e36b6f1e"
+};
+const COL = "utileria";
+let db = null, F = null, canWrite = true;
+let yo = "";
+try { yo = localStorage.getItem("utileria.yo") || ""; } catch (e) {}
+const quien = () => yo || "";
+let items = [];
+const pending = new Set();
+
+const $ = (id) => document.getElementById(id);
+function el(tag, attrs, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v;
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else if (v !== false && v != null) n.setAttribute(k, v);
+  }
+  for (const c of kids) if (c != null) n.append(c);
+  return n;
+}
+const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+function visible(it) {
+  if (!ui.tipos.has(it.tipo)) return false;
+  if (ui.estado !== "todos" && (it.estado || "falta") !== ui.estado) return false;
+  if (ui.q) {
+    const hay = norm([it.nombre, it.detalle, it.nota, ...(it.personajes || []).map(p => (PERSONAJES.find(x => x.k === p) || {}).t)].join(" "));
+    if (!hay.includes(norm(ui.q))) return false;
+  }
+  return true;
+}
+
+function renderSummary() {
+  const n = items.length;
+  const c = { falta: 0, curso: 0, listo: 0 };
+  const byT = {};
+  for (const it of items) {
+    const e = it.estado || "falta"; c[e]++;
+    byT[it.tipo] = byT[it.tipo] || { n: 0, l: 0 }; byT[it.tipo].n++; if (e === "listo") byT[it.tipo].l++;
+  }
+  $("bListo").style.width = n ? (c.listo / n * 100) + "%" : "0";
+  $("bCurso").style.width = n ? (c.curso / n * 100) + "%" : "0";
+  const counts = $("counts"); counts.replaceChildren();
+  if (!n) { counts.append(el("span", { class: "notice", text: "La lista está vacía." })); $("bytipo").textContent = ""; return; }
+  counts.append(
+    el("span", { class: "c-listo" }, el("b", { text: c.listo }), `conseguidos de ${n}`),
+    el("span", { class: "c-curso" }, el("b", { text: c.curso }), "en curso"),
+    el("span", { class: "c-falta" }, el("b", { text: c.falta }), "faltan")
+  );
+  $("bytipo").textContent = Object.keys(TIPOS).filter(t => byT[t]).map(t => `${TIPOS[t]}: ${byT[t].l}/${byT[t].n}`).join(" · ");
+}
+
+function itemRow(it, groupKey) {
+  const estado = it.estado || "falta";
+  const li = el("li", { class: "item" + (estado === "listo" ? " is-listo" : "") });
+  const btn = el("button", {
+    type: "button", class: "state " + estado, disabled: (!canWrite || pending.has(it.id)) ? "" : false,
+    "aria-label": `${it.nombre}: ${ESTADOS[estado]}. Cambiar a ${ESTADOS[NEXT[estado]]}`,
+    onclick: () => setEstado(it, NEXT[estado])
+  }, ESTADOS[estado]);
+  const meta = el("div", { class: "meta" });
+  meta.append(el("span", { class: "tag" + (it.origen === "I" ? " inf" : ""), text: it.origen === "I" ? "I" : it.origen === "L" ? "L" : "+" , title: it.origen === "I" ? "Inferido de la acción" : it.origen === "L" ? "Lo nombra el libreto" : "Agregado por el equipo" }));
+  if (it.alerta) meta.append(el("span", { class: "tag warn", text: "⚠", title: it.alerta }));
+  if (ui.view === "momento") {
+    const ps = (it.personajes || []).map(p => (PERSONAJES.find(x => x.k === p) || { t: p }).t);
+    if (ps.length) meta.append(el("span", { text: ps.join(", ") }));
+    const otros = (it.momentos || []).filter(m => m !== groupKey);
+    if (otros.length) meta.append(el("span", { text: "también en " + otros.map(m => MSHORT[m] || m).join(", ") }));
+  } else {
+    meta.append(el("span", { text: (it.momentos || []).map(m => MSHORT[m] || m).join(" · ") }));
+    meta.append(el("span", { text: TIPOS[it.tipo] }));
+  }
+  li.append(btn, el("div", { class: "name" }, it.nombre), meta);
+  if (it.detalle) li.append(el("div", { class: "detail", text: it.detalle }));
+  if (it.alerta) li.append(el("div", { class: "detail", text: "⚠ " + it.alerta }));
+  if (it.nota) li.append(el("div", { class: "note-shown", text: it.nota }));
+
+  const who = el("div", { class: "who" });
+  if (it.actualizado) {
+    const d = new Date(it.actualizado);
+    const fecha = isNaN(d) ? "" : d.toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit" }) + " " + d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    who.textContent = `Último cambio: ${it.actualizado_por || "alguien del equipo"} · ${fecha}`;
+  } else who.textContent = "Sin cambios todavía.";
+  const inner = el("div", { class: "inner" }, who);
+  if (canWrite) {
+    const ta = el("textarea", { id: "nota-" + groupKey + "-" + it.id, "aria-label": "Nota", placeholder: "Dónde se consigue, quién lo trae, costo…" });
+    ta.value = it.nota || "";
+    const save = el("button", { type: "button", class: "chip", onclick: () => saveNota(it, ta.value) }, "Guardar nota");
+    const conf = el("span", { hidden: "" }, "¿Quitar de la lista? ",
+      el("button", { type: "button", class: "linkbtn", onclick: () => quitar(it) }, "Sí, quitar"), " ",
+      el("button", { type: "button", class: "linkbtn", style: "color:var(--muted)", onclick: () => { conf.hidden = true; del.hidden = false; } }, "No"));
+    const del = el("button", { type: "button", class: "linkbtn", onclick: () => { del.hidden = true; conf.hidden = false; } }, "Quitar de la lista");
+    inner.append(ta, save, del, conf);
+  }
+  li.append(el("details", { class: "more" }, el("summary", {}, canWrite ? "Nota y detalles" : "Detalles"), inner));
+  return li;
+}
+
+function renderGroups() {
+  const root = $("groups");
+  const openNow = new Set([...root.querySelectorAll("details[open] textarea")].map(t => t.id));
+  root.replaceChildren();
+  if (!items.length) {
+    root.append(el("div", { class: "empty", text: "Todavía no hay elementos en la lista. Sumá el primero con el formulario de abajo." }));
+    return;
+  }
+  const list = items.filter(visible).sort((a, b) => (a.orden ?? 9999) - (b.orden ?? 9999) || a.nombre.localeCompare(b.nombre, "es"));
+  const groups = ui.view === "momento" ? MOMENTOS : PERSONAJES;
+  let any = false;
+  for (const g of groups) {
+    const inG = list.filter(it => ui.view === "momento"
+      ? (it.momentos || []).includes(g.k)
+      : (g.k === "ESCENA" ? !(it.personajes || []).length : (it.personajes || []).includes(g.k)));
+    if (!inG.length) continue;
+    any = true;
+    const done = inG.filter(it => it.estado === "listo").length;
+    const sec = el("section", { class: "group", id: "g-" + g.k });
+    sec.append(el("div", { class: "ghead" }, el("h2", { class: "tape" }, g.t), g.s ? el("span", { class: "gsub", text: g.s }) : null, el("span", { class: "gcount", text: `${done}/${inG.length}` })));
+    for (const tipo of Object.keys(TIPOS)) {
+      const sub = inG.filter(it => it.tipo === tipo);
+      if (!sub.length) continue;
+      sec.append(el("h3", { class: "subtipo", text: TIPOS[tipo] }));
+      const ul = el("ul", { class: "items" });
+      for (const it of sub) ul.append(itemRow(it, g.k));
+      sec.append(ul);
+    }
+    root.append(sec);
+  }
+  if (!any) root.append(el("div", { class: "empty", text: "Ningún elemento coincide con los filtros." }));
+  for (const id of openNow) { const t = document.getElementById(id); if (t) t.closest("details").open = true; }
+}
+
+function render() { renderSummary(); renderGroups(); }
+
+let roT;
+function fail(e) {
+  console.error(e);
+  $("ro").hidden = false; clearTimeout(roT); roT = setTimeout(() => { $("ro").hidden = true; }, 6000);
+  render();
+}
+const ref = (id) => F.doc(db, COL, id);
+async function setEstado(it, estado) {
+  if (!db || pending.has(it.id)) return;
+  pending.add(it.id); renderGroups();
+  try { await F.updateDoc(ref(it.id), { estado, actualizado_por: quien(), actualizado: new Date().toISOString() }); }
+  catch (e) { fail(e); }
+  finally { pending.delete(it.id); renderGroups(); }
+}
+async function saveNota(it, nota) {
+  if (!db || (it.nota || "") === nota.trim()) return;
+  try { await F.updateDoc(ref(it.id), { nota: nota.trim(), actualizado_por: quien(), actualizado: new Date().toISOString() }); }
+  catch (e) { fail(e); }
+}
+async function quitar(it) {
+  if (!db) return;
+  try { await F.deleteDoc(ref(it.id)); } catch (e) { fail(e); }
+}
+
+// filtros
+function setView(v) {
+  ui.view = v;
+  $("vMomento").setAttribute("aria-pressed", v === "momento"); $("vPersonaje").setAttribute("aria-pressed", v === "personaje");
+  try { localStorage.setItem("utileria.view", v); } catch (e) {}
+  renderGroups();
+}
+$("vMomento").onclick = () => setView("momento");
+$("vPersonaje").onclick = () => setView("personaje");
+$("fEstado").addEventListener("click", (ev) => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.dataset.v) {
+    ui.estado = b.dataset.v;
+    for (const x of $("fEstado").querySelectorAll("[data-v]")) x.setAttribute("aria-pressed", x === b);
+  } else if (b.dataset.t) {
+    const t = b.dataset.t;
+    if (ui.tipos.has(t) && ui.tipos.size > 1) ui.tipos.delete(t); else ui.tipos.add(t);
+    for (const x of $("fEstado").querySelectorAll("[data-t]")) x.setAttribute("aria-pressed", ui.tipos.has(x.dataset.t));
+  }
+  renderGroups();
+});
+let qt; $("q").addEventListener("input", (e) => { clearTimeout(qt); qt = setTimeout(() => { ui.q = e.target.value.trim(); renderGroups(); }, 150); });
+
+// formulario
+for (const m of MOMENTOS) $("aMomentos").append(el("label", {}, el("input", { type: "checkbox", value: m.k, id: "am-" + m.k }), MSHORT[m.k] === "Pre" ? "Preludio" : m.t.split(" · ")[0]));
+for (const p of PERSONAJES.filter(p => p.k !== "ESCENA")) $("aPersonajes").append(el("label", {}, el("input", { type: "checkbox", value: p.k, id: "ap-" + p.k }), p.t));
+$("addForm").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const nombre = $("aNombre").value.trim();
+  const momentos = [...$("aMomentos").querySelectorAll("input:checked")].map(i => i.value);
+  const personajes = [...$("aPersonajes").querySelectorAll("input:checked")].map(i => i.value);
+  if (!nombre) { $("aMsg").textContent = "Poné un nombre para el elemento."; return; }
+  if (!momentos.length) { $("aMsg").textContent = "Marcá al menos un momento donde aparece."; return; }
+  if (!db) { $("aMsg").textContent = "Todavía no hay conexión con la lista. Esperá unos segundos y probá de nuevo."; return; }
+  const orden = items.reduce((m, i) => Math.max(m, i.orden || 0), 0) + 1;
+  try {
+    await F.addDoc(F.collection(db, COL), { nombre, tipo: $("aTipo").value, detalle: $("aDetalle").value.trim(), momentos, personajes, origen: "+", estado: "falta", nota: "", orden, actualizado_por: quien(), actualizado: new Date().toISOString() });
+    $("addForm").reset(); $("aMsg").textContent = "";
+    $("aMsg").textContent = `"${nombre}" quedó en la lista.`;
+  } catch (e) {
+    $("aMsg").textContent = "No se pudo agregar. Revisá la conexión y probá de nuevo.";
+  }
+});
+
+renderGroups();
+
+// quién firma los cambios
+$("yo").value = yo;
+$("yo").addEventListener("change", (e) => {
+  yo = e.target.value.trim();
+  try { localStorage.setItem("utileria.yo", yo); } catch (err) {}
+});
+
+// conexión con la lista compartida (Firestore)
+const SDK = "https://www.gstatic.com/firebasejs/11.0.2/";
+(async () => {
+  try {
+    const A = await import(SDK + "firebase-app.js");
+    F = await import(SDK + "firebase-firestore.js");
+    db = F.getFirestore(A.initializeApp(FIREBASE));
+  } catch (e) {
+    $("counts").replaceChildren(el("span", { class: "notice", text: "No se pudo cargar la lista. Revisá la conexión y recargá la página." }));
+    $("sync").textContent = "Sin conexión";
+    return;
+  }
+  F.onSnapshot(F.collection(db, COL), { includeMetadataChanges: true }, (snap) => {
+    items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    $("sync").textContent = snap.metadata.hasPendingWrites ? "Guardando…" : "Guardado · en vivo";
+    render();
+  }, (e) => {
+    console.error(e);
+    $("sync").textContent = "Sin conexión";
+    $("counts").replaceChildren(el("span", { class: "notice", text: "Se cortó la conexión con la lista. Recargá la página." }));
+  });
+})();
+</script>
+
+</body></html>

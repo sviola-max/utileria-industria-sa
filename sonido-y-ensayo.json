@@ -1,0 +1,295 @@
+{
+ "pista-t0": {
+  "nombre": "Pista de ensayo: Los Dinosaurios + Gracias a la Vida",
+  "tipo": "pista",
+  "momentos": [
+   "T0"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "PERIODISTA"
+  ],
+  "detalle": "Charly García y Mercedes Sosa. La toca la banda en vivo durante toda la caminata; esta es la pista grabada para que el elenco ensaye la transición.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 201,
+  "alerta": "Falta definir si se suma «Canción para mi Muerte» (Sui Generis) o si reemplaza a una de las dos."
+ },
+ "pista-t1": {
+  "nombre": "Pista de ensayo: Se Viene + Cuando Pase el Temblor",
+  "tipo": "pista",
+  "momentos": [
+   "T1"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "PERIODISTA"
+  ],
+  "detalle": "Bersuit Vergarabat y Soda Stereo. La toca la banda en vivo durante toda la caminata; esta es la pista grabada para que el elenco ensaye la transición.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 202
+ },
+ "pista-t2": {
+  "nombre": "Pista de ensayo: ¿Qué Ves? + El Arriero",
+  "tipo": "pista",
+  "momentos": [
+   "T2"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "PERIODISTA"
+  ],
+  "detalle": "Divididos. La toca la banda en vivo durante toda la caminata; esta es la pista grabada para que el elenco ensaye la transición.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 203
+ },
+ "pista-t3": {
+  "nombre": "Pista de ensayo: Tierra Zanta",
+  "tipo": "pista",
+  "momentos": [
+   "T3"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "HIJA"
+  ],
+  "detalle": "Trueno, desde el principio del tema. La toca la banda en vivo durante toda la caminata; esta es la pista grabada para que el elenco ensaye la transición.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 204
+ },
+ "pista-corrida": {
+  "nombre": "Pista corrida de las cuatro transiciones",
+  "tipo": "pista",
+  "momentos": [
+   "T0",
+   "T1",
+   "T2",
+   "T3"
+  ],
+  "personajes": [],
+  "detalle": "Las cuatro pistas de ensayo en un solo archivo, para pasar la obra entera.",
+  "origen": "I",
+  "estado": "falta",
+  "nota": "",
+  "orden": 205
+ },
+ "sfx-fijo": {
+  "nombre": "Sonido: ring del teléfono fijo",
+  "tipo": "pista",
+  "momentos": [
+   "M1"
+  ],
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "detalle": "Suena en el Momento I. En el III el teléfono no suena.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 206,
+  "alerta": "Falta definir si suena el aparato en escena o sale por el sonido de la sala."
+ },
+ "sfx-movicom": {
+  "nombre": "Sonido: ring del Movicom",
+  "tipo": "pista",
+  "momentos": [
+   "M2"
+  ],
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "detalle": "",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 207,
+  "alerta": "Falta definir si suena el aparato en escena o sale por el sonido de la sala."
+ },
+ "sq-radio": {
+  "nombre": "Voz en off de la radio: «El que depositó dólares recibirá dólares…»",
+  "tipo": "pista",
+  "momentos": [
+   "M2"
+  ],
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "detalle": "Sale de la radio a batería; hay que grabarla.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 208
+ },
+ "sfx-celular": {
+  "nombre": "Sonido: ring del celular",
+  "tipo": "pista",
+  "momentos": [
+   "M3"
+  ],
+  "personajes": [
+   "INDUSTRIAL"
+  ],
+  "detalle": "",
+  "origen": "I",
+  "estado": "falta",
+  "nota": "",
+  "orden": 209,
+  "alerta": "El guion técnico (libreto v3.0) lo pone en el Momento IV; la lista de utilería tiene el celular en el III sin decir si suena. Confirmar con el libreto."
+ },
+ "sq-ambiente": {
+  "nombre": "Música de ambiente del Preludio",
+  "tipo": "pista",
+  "momentos": [
+   "PRE"
+  ],
+  "personajes": [],
+  "detalle": "Fondo de evento, para que no se note que es una obra.",
+  "origen": "I",
+  "estado": "falta",
+  "nota": "",
+  "orden": 210,
+  "alerta": "Sale del guion técnico (libreto v3.0); confirmar si sigue."
+ },
+ "sq-finale": {
+  "nombre": "Música de build-up del Finale",
+  "tipo": "pista",
+  "momentos": [
+   "M6"
+  ],
+  "personajes": [],
+  "detalle": "",
+  "origen": "I",
+  "estado": "falta",
+  "nota": "",
+  "orden": 211,
+  "alerta": "Sale del guion técnico (libreto v3.0); confirmar si sigue."
+ },
+ "ens-caja1": {
+  "nombre": "Cajas, vuelta 1: una caja que esquiva",
+  "tipo": "ensayo",
+  "momentos": [
+   "M1"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "ASISTENTES"
+  ],
+  "detalle": "Del Norte a la tarima central: la esquiva sin pensarlo.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 301
+ },
+ "ens-caja2": {
+  "nombre": "Cajas, vuelta 2: dos cajas que acomoda",
+  "tipo": "ensayo",
+  "momentos": [
+   "M2"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "ASISTENTES"
+  ],
+  "detalle": "Del Este a la tarima central: las agarra y las acomoda a un costado.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 302
+ },
+ "ens-caja3": {
+  "nombre": "Cajas, vuelta 3: tres cajas que corre caminando",
+  "tipo": "ensayo",
+  "momentos": [
+   "M3"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "ASISTENTES"
+  ],
+  "detalle": "Del Sur a la tarima central: las corre una por una sin dejar de caminar.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 303
+ },
+ "ens-caja4": {
+  "nombre": "Cajas, vuelta 4: cuatro cajas entre los dos",
+  "tipo": "ensayo",
+  "momentos": [
+   "M4"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "HIJA",
+   "ASISTENTES"
+  ],
+  "detalle": "Del Oeste a la tarima central: el Industrial y la Hija las acomodan entre los dos.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 304
+ },
+ "ens-caja5": {
+  "nombre": "Cajas, vuelta 5: la mesa pasa las cinco de mano en mano",
+  "tipo": "ensayo",
+  "momentos": [
+   "T5"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "ASISTENTES"
+  ],
+  "detalle": "Junto a una mesa encintada: el Industrial no puede correrlas y el público se las pasa sin salir de la cinta.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 305
+ },
+ "ens-cajas-repo": {
+  "nombre": "Cajas: poner y retirar entre vueltas",
+  "tipo": "ensayo",
+  "momentos": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "T5"
+  ],
+  "personajes": [
+   "ASISTENTES"
+  ],
+  "detalle": "Con cinco cajas alcanza si los asistentes las retiran después de cada vuelta.",
+  "origen": "I",
+  "estado": "falta",
+  "nota": "",
+  "orden": 306
+ },
+ "ens-finale": {
+  "nombre": "Finale completo",
+  "tipo": "ensayo",
+  "momentos": [
+   "M6"
+  ],
+  "personajes": [
+   "INDUSTRIAL",
+   "PERIODISTA",
+   "HIJA",
+   "LIBERTARIO",
+   "ESTADISTA",
+   "OFICIAL",
+   "PRESIDENTE"
+  ],
+  "detalle": "Entero, hasta la reflexión final del Presidente.",
+  "origen": "L",
+  "estado": "falta",
+  "nota": "",
+  "orden": 307
+ }
+}

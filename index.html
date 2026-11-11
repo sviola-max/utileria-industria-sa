@@ -72,6 +72,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 
 .groups { display: grid; gap: 26px; }
 .group { display: grid; gap: 8px; }
+.group.ensayo .tape { background: var(--accent); color: var(--paper); }
 .ghead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
 .tape { display: inline-block; background: var(--tape); color: var(--tape-ink); font: 700 1.05rem var(--f-display); letter-spacing: .05em; text-transform: uppercase; padding: 2px 10px; transform: rotate(-.6deg); box-shadow: 0 1px 0 rgba(0,0,0,.08); }
 .gsub { color: var(--muted); font-size: .88rem; }
@@ -134,7 +135,7 @@ legend { font-size: .85rem; color: var(--muted); padding: 0; }
   <header>
     <div class="eyebrow">Somos Industria 2026 · Experiencia inmersiva · Libreto v3.3</div>
     <h1>Utilería de Industria S.A.</h1>
-    <p class="lede">Escenografía, props y vestuario de la obra. Tocá el estado de cada elemento para pasarlo de <em>falta</em> a <em>en curso</em> y a <em>conseguido</em>. Lo que marques se guarda al instante y lo ve todo el equipo.</p>
+    <p class="lede">Escenografía, props, vestuario y pistas de la obra, y lo que falta ensayar. Tocá el estado de cada elemento para pasarlo de <em>falta</em> a <em>en curso</em> y a <em>conseguido</em>. Lo que marques se guarda al instante y lo ve todo el equipo.</p>
     <p class="yo"><label for="yo">Firmás como</label><input type="text" id="yo" maxlength="40" placeholder="Tu nombre"><span class="sync" id="sync">Conectando…</span></p>
   </header>
 
@@ -161,6 +162,7 @@ legend { font-size: .85rem; color: var(--muted); padding: 0; }
       <button type="button" class="chip" data-t="escenografia" aria-pressed="true">Escenografía</button>
       <button type="button" class="chip" data-t="prop" aria-pressed="true">Props</button>
       <button type="button" class="chip" data-t="vestuario" aria-pressed="true">Vestuario</button>
+      <button type="button" class="chip" data-t="pista" aria-pressed="true">Pistas y sonido</button>
     </div>
   </section>
 
@@ -175,7 +177,7 @@ legend { font-size: .85rem; color: var(--muted); padding: 0; }
     <form id="addForm" novalidate>
       <label>Nombre<input type="text" id="aNombre" maxlength="120" required></label>
       <label>Tipo
-        <select id="aTipo"><option value="prop">Prop</option><option value="escenografia">Escenografía</option><option value="vestuario">Vestuario</option></select>
+        <select id="aTipo"><option value="prop">Prop</option><option value="escenografia">Escenografía</option><option value="vestuario">Vestuario</option><option value="pista">Pista o sonido</option><option value="ensayo">Algo para ensayar</option></select>
       </label>
       <label>Detalle (opcional)<input type="text" id="aDetalle" maxlength="300"></label>
       <fieldset><legend>Momentos</legend><div class="checks" id="aMomentos"></div></fieldset>
@@ -195,9 +197,13 @@ const MOMENTOS = [
   { k: "M1", t: "Momento I · La Fundación", s: "Norte · 9 min" },
   { k: "T1", t: "Transición I → II", s: "Hacia el Este" },
   { k: "M2", t: "Momento II · Traspaso generacional", s: "Este · 9 min" },
+  { k: "T2", t: "Transición II → III", s: "Hacia el Sur" },
   { k: "M3", t: "Momento III · Crecimiento", s: "Sur · 7 min" },
+  { k: "T3", t: "Transición III → IV", s: "Hacia el Oeste" },
   { k: "M4", t: "Momento IV · Tercera generación", s: "Oeste · 8 min" },
+  { k: "T4", t: "Transición IV → V", s: "Hacia el Norte" },
   { k: "M5", t: "Momento V · La Actualidad", s: "Norte · 8 min" },
+  { k: "T5", t: "Transición V → Finale", s: "Hacia la tarima central" },
   { k: "M6", t: "Momento VI · Finale", s: "Tarima central · 8 min" }
 ];
 const PERSONAJES = [
@@ -206,12 +212,18 @@ const PERSONAJES = [
   { k: "OFICIAL", t: "El Oficial y uniformados" }, { k: "PRESIDENTE", t: "El Presidente de UIPBA" },
   { k: "ASISTENTES", t: "Asistentes y mozos" }, { k: "ESCENA", t: "Escenario (sin personaje)" }
 ];
-const MSHORT = { PRE: "Pre", M0: "0", T0: "T0→I", M1: "I", T1: "TI→II", M2: "II", M3: "III", M4: "IV", M5: "V", M6: "Fin" };
-const TIPOS = { escenografia: "Escenografía", prop: "Props", vestuario: "Vestuario" };
+const MSHORT = { PRE: "Pre", M0: "0", T0: "T0→I", M1: "I", T1: "TI→II", M2: "II", T2: "TII→III", M3: "III", T3: "TIII→IV", M4: "IV", T4: "TIV→V", M5: "V", T5: "TV→Fin", M6: "Fin" };
+// "ensayo" no es utilería: va en su propia sección, fuera de los momentos y del avance de la lista
+const TIPOS = { escenografia: "Escenografía", prop: "Props", vestuario: "Vestuario", pista: "Pistas y sonido" };
 const ESTADOS = { falta: "Falta", curso: "En curso", listo: "Conseguido" };
+const ESTADOS_T = {
+  pista: { falta: "Falta", curso: "En curso", listo: "Lista" },
+  ensayo: { falta: "Sin ensayar", curso: "Ensayando", listo: "Ensayado" }
+};
+const lab = (it, e) => (ESTADOS_T[it.tipo] || ESTADOS)[e];
 const NEXT = { falta: "curso", curso: "listo", listo: "falta" };
 
-const ui = { view: "momento", estado: "todos", tipos: new Set(["escenografia", "prop", "vestuario"]), q: "" };
+const ui = { view: "momento", estado: "todos", tipos: new Set(["escenografia", "prop", "vestuario", "pista"]), q: "" };
 try { const v = localStorage.getItem("utileria.view"); if (v === "momento" || v === "personaje") ui.view = v; } catch (e) {}
 
 const FIREBASE = {
@@ -241,7 +253,7 @@ function el(tag, attrs, ...kids) {
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 function visible(it) {
-  if (!ui.tipos.has(it.tipo)) return false;
+  if (it.tipo !== "ensayo" && !ui.tipos.has(it.tipo)) return false;
   if (ui.estado !== "todos" && (it.estado || "falta") !== ui.estado) return false;
   if (ui.q) {
     const hay = norm([it.nombre, it.detalle, it.nota, ...(it.personajes || []).map(p => (PERSONAJES.find(x => x.k === p) || {}).t)].join(" "));
@@ -251,10 +263,12 @@ function visible(it) {
 }
 
 function renderSummary() {
-  const n = items.length;
+  const util = items.filter(it => it.tipo !== "ensayo");
+  const ens = items.filter(it => it.tipo === "ensayo");
+  const n = util.length;
   const c = { falta: 0, curso: 0, listo: 0 };
   const byT = {};
-  for (const it of items) {
+  for (const it of util) {
     const e = it.estado || "falta"; c[e]++;
     byT[it.tipo] = byT[it.tipo] || { n: 0, l: 0 }; byT[it.tipo].n++; if (e === "listo") byT[it.tipo].l++;
   }
@@ -267,7 +281,9 @@ function renderSummary() {
     el("span", { class: "c-curso" }, el("b", { text: c.curso }), "en curso"),
     el("span", { class: "c-falta" }, el("b", { text: c.falta }), "faltan")
   );
-  $("bytipo").textContent = Object.keys(TIPOS).filter(t => byT[t]).map(t => `${TIPOS[t]}: ${byT[t].l}/${byT[t].n}`).join(" · ");
+  const partes = Object.keys(TIPOS).filter(t => byT[t]).map(t => `${TIPOS[t]}: ${byT[t].l}/${byT[t].n}`);
+  if (ens.length) partes.push(`Ensayo: ${ens.filter(it => it.estado === "listo").length}/${ens.length} ensayados`);
+  $("bytipo").textContent = partes.join(" · ");
 }
 
 function itemRow(it, groupKey) {
@@ -275,13 +291,17 @@ function itemRow(it, groupKey) {
   const li = el("li", { class: "item" + (estado === "listo" ? " is-listo" : "") });
   const btn = el("button", {
     type: "button", class: "state " + estado, disabled: (!canWrite || pending.has(it.id)) ? "" : false,
-    "aria-label": `${it.nombre}: ${ESTADOS[estado]}. Cambiar a ${ESTADOS[NEXT[estado]]}`,
+    "aria-label": `${it.nombre}: ${lab(it, estado)}. Cambiar a ${lab(it, NEXT[estado])}`,
     onclick: () => setEstado(it, NEXT[estado])
-  }, ESTADOS[estado]);
+  }, lab(it, estado));
   const meta = el("div", { class: "meta" });
   meta.append(el("span", { class: "tag" + (it.origen === "I" ? " inf" : ""), text: it.origen === "I" ? "I" : it.origen === "L" ? "L" : "+" , title: it.origen === "I" ? "Inferido de la acción" : it.origen === "L" ? "Lo nombra el libreto" : "Agregado por el equipo" }));
   if (it.alerta) meta.append(el("span", { class: "tag warn", text: "⚠", title: it.alerta }));
-  if (ui.view === "momento") {
+  if (groupKey === "ENSAYO") {
+    const ps = (it.personajes || []).map(p => (PERSONAJES.find(x => x.k === p) || { t: p }).t);
+    meta.append(el("span", { text: (it.momentos || []).map(m => (MOMENTOS.find(x => x.k === m) || { t: m }).t).join(" · ") }));
+    if (ps.length) meta.append(el("span", { text: ps.join(", ") }));
+  } else if (ui.view === "momento") {
     const ps = (it.personajes || []).map(p => (PERSONAJES.find(x => x.k === p) || { t: p }).t);
     if (ps.length) meta.append(el("span", { text: ps.join(", ") }));
     const otros = (it.momentos || []).filter(m => m !== groupKey);
@@ -324,9 +344,21 @@ function renderGroups() {
     root.append(el("div", { class: "empty", text: "Todavía no hay elementos en la lista. Sumá el primero con el formulario de abajo." }));
     return;
   }
-  const list = items.filter(visible).sort((a, b) => (a.orden ?? 9999) - (b.orden ?? 9999) || a.nombre.localeCompare(b.nombre, "es"));
+  const all = items.filter(visible).sort((a, b) => (a.orden ?? 9999) - (b.orden ?? 9999) || a.nombre.localeCompare(b.nombre, "es"));
+  const ensayo = all.filter(it => it.tipo === "ensayo");
+  const list = all.filter(it => it.tipo !== "ensayo");
   const groups = ui.view === "momento" ? MOMENTOS : PERSONAJES;
   let any = false;
+  if (ensayo.length) {
+    any = true;
+    const done = ensayo.filter(it => it.estado === "listo").length;
+    const sec = el("section", { class: "group ensayo", id: "g-ENSAYO" });
+    sec.append(el("div", { class: "ghead" }, el("h2", { class: "tape" }, "Falta ensayar"), el("span", { class: "gsub", text: "Pasadas que hay que hacer antes de la función" }), el("span", { class: "gcount", text: `${done}/${ensayo.length}` })));
+    const ul = el("ul", { class: "items" });
+    for (const it of ensayo) ul.append(itemRow(it, "ENSAYO"));
+    sec.append(ul);
+    root.append(sec);
+  }
   for (const g of groups) {
     const inG = list.filter(it => ui.view === "momento"
       ? (it.momentos || []).includes(g.k)

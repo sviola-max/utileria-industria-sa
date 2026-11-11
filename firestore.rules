@@ -22,13 +22,13 @@ service cloud.firestore {
       allow update, delete: if request.auth != null;
     }
 
-    // Utilería de Industria S.A.: lista de escenografía, props y vestuario.
+    // Utilería de Industria S.A.: escenografía, props, vestuario, pistas y lo que falta ensayar.
     // Cualquiera con el link lee y marca; solo se aceptan los campos de la lista.
     match /utileria/{item} {
       allow read: if true;
       allow create, update: if request.resource.data.keys().hasOnly(['nombre','tipo','detalle','alerta','momentos','personajes','origen','estado','nota','orden','actualizado_por','actualizado'])
         && request.resource.data.nombre is string && request.resource.data.nombre.size() > 0 && request.resource.data.nombre.size() <= 120
-        && request.resource.data.tipo in ['escenografia','prop','vestuario']
+        && request.resource.data.tipo in ['escenografia','prop','vestuario','pista','ensayo']
         && request.resource.data.estado in ['falta','curso','listo']
         && request.resource.data.get('nota', '').size() <= 1000
         && request.resource.data.get('actualizado_por', '').size() <= 40;

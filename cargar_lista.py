@@ -1,4 +1,4 @@
-"""Carga lista-inicial.json en la colección `utileria` de Firestore.
+"""Carga lista-inicial.json (o el JSON que se pase como argumento) en la colección `utileria` de Firestore.
 
 Se corre una sola vez, después de publicar firestore.rules en la consola.
 No pisa nada: si un elemento ya existe en Firestore, lo saltea.
@@ -21,7 +21,8 @@ def valor(v):
 
 
 def main():
-    lista = json.loads((Path(__file__).parent / "lista-inicial.json").read_text(encoding="utf-8"))
+    archivo = sys.argv[1] if len(sys.argv) > 1 else "lista-inicial.json"
+    lista = json.loads((Path(__file__).parent / archivo).read_text(encoding="utf-8"))
     nuevos = saltados = 0
     for doc_id, d in lista.items():
         url = f"{BASE}/utileria?documentId={doc_id}&key={API_KEY}"

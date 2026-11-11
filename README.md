@@ -1,6 +1,6 @@
 # Utilería de Industria S.A.
 
-Lista compartida de escenografía, props, vestuario, pistas y lo que falta ensayar de la obra de Somos Industria 2026 (libreto v3.3).
+Lista compartida de escenografía, props, vestuario, pistas y lo que falta ensayar de la obra de Somos Industria 2026 (libreto v3.4: el agente de ARCA y tres inspectores en lugar de la policía).
 
 - `index.html`: la página que publica GitHub Pages. Cada estado y nota se guarda en Firestore (proyecto `somos-industria-be1c5`, colección `utileria`) y se ve en vivo en todos los teléfonos.
 - `firestore.rules`: reglas del proyecto, con el bloque `utileria` agregado.
